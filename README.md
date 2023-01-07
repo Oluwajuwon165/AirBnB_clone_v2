@@ -154,7 +154,7 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
-Oluwahuwon Oladiti - [Github](https://github.com/Oluwajuwon165)  
+Oluwajuwon Oladiti - [Github](https://github.com/Oluwajuwon165)  
 Esther Adeyemi - [Github](https://github.com/esteri1)
 
 Second part of Airbnb: Joann Vuong
