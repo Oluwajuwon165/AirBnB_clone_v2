@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-"""states_list: display a HTML page: (inside the tag BODY)"""
+# displays states
+from flask import Flask, render_template
 from models import storage
 from models.state import State
-from flask import Flask, render_template
-
 app = Flask(__name__)
 app.url_map.strict_slashes = False
-
-
-@app.teardown_appcontext
-def close_context(exception):
-    """Handles clean up"""
-    storage.close()
+ip = '0.0.0.0'
+port = 5000
 
 
 @app.route('/states_list')
-def state_route():
-    """lists all states"""
-    return render_template('7-states_list.html',
-                            states=storage.all(state))
+def states_list():
+    # lists the states
+    all_states = list(storage.all(State).values())
+    return (render_template('7-states_list.html', all_states=all_states))
 
+
+@app.teardown_appcontext
+def teardown(self):
+    # tears down app context
+    storage.close()
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host=ip, port=port)
